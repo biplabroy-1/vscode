@@ -1,6 +1,6 @@
 {
-  "name": "heyhello",
-  "displayName": "heyHello",
+  "name": "node",
+  "displayName": "node",
   "description": "",
   "version": "0.0.1",
   "engines": {
@@ -9,30 +9,34 @@
   "categories": [
     "Other"
   ],
-  "activationEvents": [],
+  "activationEvents": [
+    "onLanguage:javascript",
+    "onLanguage:typescript"
+  ],
   "main": "./out/extension.js",
   "contributes": {
     "commands": [
       {
-        "command": "heyhello.helloWorld",
-        "title": "Hello World"
+        "command": "extension.runNodeScript",
+        "title": "Run Node.js",
+        "icon": "$(play)"
       }
     ],
     "menus": {
-      "view/title": [
+      "editor/title": [
         {
-          "command": "extension.sayHello",
-          "when": "view == your-view-id",
+          "when": "resourceLangId == javascript || resourceLangId == typescript",
+          "command": "extension.runNodeScript",
           "group": "navigation"
         }
       ]
     }
   },
   "scripts": {
-    "vscode:prepublish": "pnpm run compile",
+    "vscode:prepublish": "npm run compile",
     "compile": "tsc -p ./",
     "watch": "tsc -watch -p ./",
-    "pretest": "pnpm run compile && pnpm run lint",
+    "pretest": "npm run compile && npm run lint",
     "lint": "eslint src --ext ts",
     "test": "vscode-test"
   },
