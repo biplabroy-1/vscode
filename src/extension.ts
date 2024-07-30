@@ -14,7 +14,7 @@ export function activate(context: vscode.ExtensionContext) {
             }
             terminal.show();
             terminal.sendText(`node "${filePath}"`);
-            vscode.window.showInformationMessage(`Node.js script started: "${filePath}"`);
+            vscode.window.showInformationMessage(`Javascript Code Running: "${filePath}"`);
 
             vscode.window.onDidCloseTerminal((closedTerminal) => {
                 if (closedTerminal === terminal) {
@@ -30,7 +30,7 @@ export function activate(context: vscode.ExtensionContext) {
 
     // Adding a status bar item as a button
     const statusBarItem = vscode.window.createStatusBarItem(vscode.StatusBarAlignment.Right, 200);
-    statusBarItem.text = 'Run Node.js';
+    statusBarItem.text = 'Run Javascript';
     statusBarItem.command = 'extension.runNodeScript';
     statusBarItem.show();
     context.subscriptions.push(statusBarItem);

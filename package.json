@@ -18,7 +18,7 @@
     "commands": [
       {
         "command": "extension.runNodeScript",
-        "title": "Run Node.js",
+        "title": "Run Javascript",
         "icon": "$(play)"
       }
     ],
