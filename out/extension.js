@@ -38,7 +38,7 @@ function activate(context) {
             }
             terminal.show();
             terminal.sendText(`node "${filePath}"`);
-            vscode.window.showInformationMessage(`Node.js script started: "${filePath}"`);
+            vscode.window.showInformationMessage(`Javascript Code Running: "${filePath}"`);
             vscode.window.onDidCloseTerminal((closedTerminal) => {
                 if (closedTerminal === terminal) {
                     terminal = undefined;
@@ -51,8 +51,8 @@ function activate(context) {
     });
     context.subscriptions.push(disposable);
     // Adding a status bar item as a button
-    const statusBarItem = vscode.window.createStatusBarItem(vscode.StatusBarAlignment.Right, 100);
-    statusBarItem.text = 'Run Node.js';
+    const statusBarItem = vscode.window.createStatusBarItem(vscode.StatusBarAlignment.Right, 200);
+    statusBarItem.text = 'Run Javascript';
     statusBarItem.command = 'extension.runNodeScript';
     statusBarItem.show();
     context.subscriptions.push(statusBarItem);
